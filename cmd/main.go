@@ -9,6 +9,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
+//  downloadStockWebpageBody загружает страницу по указанному URL
 func downloadStockWebpageBody(symbol string) io.ReadCloser {
 	res, err := http.Get("https://finance.yahoo.com/quote/" + symbol)
 	if err != nil {
@@ -26,6 +27,7 @@ const (
 	symbol = "TSLA"
 )
 
+// main точка входа в программу
 func main() {
 	body := downloadStockWebpageBody(symbol)
 	defer body.Close()
